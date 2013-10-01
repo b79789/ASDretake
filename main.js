@@ -8,7 +8,20 @@ $("#home").on('pageinit', function () {
 
 $("#form").on('pageinit', function () {
     //code for form page goes here.
-
+	var parseAddForm = function (data) {
+	        //use form data here
+	        var myId = Math.floor(Math.random() * 9000009);
+	        // get all form value and store in object
+	        var myItem = {};
+	        myItem.firstName = ["First Name:", $("#formFirstName").val()];
+	        myItem.lastName = ["Last Name:", $("#formLastName").val()];
+	        myItem.formEmail = ["Email:", $("#formEmail").val()];
+	        myItem.formPhone = ["Phone Number", $("#formPhone").val()];
+	        //Save data to local storage Use stringify to covert object
+	        localStorage.setItem(myId, JSON.stringify(myItem));
+	        alert("Reservation Saved!");
+	    };
+	    
     function validate() {
         var valForm = $("#addForm"),
             myFormErrorLink = $("#addFormErrorLink");
@@ -35,26 +48,14 @@ $("#form").on('pageinit', function () {
         });
     }
 
-    var parseAddForm = function (data) {
-        //use form data here
-        var myId = Math.floor(Math.random() * 9000009);
-        // get all form value and store in object
-        var myItem = {};
-        myItem.firstName = ["First Name:", $("#formFirstName").val()];
-        myItem.lastName = ["Last Name:", $("#formLastName").val()];
-        myItem.formEmail = ["Email:", $("#formEmail").val()];
-        myItem.formPhone = ["Phone Number", $("#formPhone").val()];
-        //Save data to local storage Use stringify to covert object
-        localStorage.setItem(myId, JSON.stringify(myItem));
-        alert("Reservation Saved!");
-    };
+    var j = localStorage.length;
 
         function showItems() {
             for (var i in localStorage) {
                 console.log(localStorage[i]);
             }
 
-            for (i = 0, len = localStorage.length; i < len; i++) {
+            for (i = 0,j = localStorage.length; i < j; i++) {
                 var key = localStorage.key(i);
                 var value = localStorage[key];
                 console.log(key + " => " + value);
@@ -80,7 +81,7 @@ $("#form").on('pageinit', function () {
 			var eMail = $("#formEmail").val();
 			var pNum = $("#formPhone").val();
 				$("#display ul").html("<li> " + '  First Name: '  + fName + "<br>" + '  Last Name:  ' +  lName  + "<br>" +'  Email:  ' + eMail + "<br>" +'  Phone Number:  ' + pNum + "</li>");
-})	
+});	
         $("#data1").on("click", function () {
             $.ajax({
                 url: "libs/JSON.js",
