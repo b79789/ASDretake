@@ -83,7 +83,7 @@ $("#form").on('pageinit', function () {
 })	
         $("#data1").on("click", function () {
             $.ajax({
-                url: "js/JSON.js",
+                url: "libs/JSON.js",
                 type: "GET",
                 dataType: "json",
                 success: function (data, status) {
@@ -100,21 +100,7 @@ $("#form").on('pageinit', function () {
         
         
         
-        $("#data2").on("click", function () {
-            $.ajax({
-                url: "js/data.php",
-                type: "GET",
-                dataType: "xml",
-                success: function (data, status){
-                    console.log(data, status);
-                    
-                },
-                error: function (error, parseerror) {
-                    console.log(error, parseerror);
-                }
-            });
 
-        });
         
         
     var submitData = $("#submit");
@@ -124,8 +110,7 @@ $("#form").on('pageinit', function () {
     var clearData = $("#clearMy");
     clearData.on("click", clearUserData);
 
-    /*var showData = $("#showMyInfo");
-    showData.on("click", showItems);*/
+  
 
 
 });
