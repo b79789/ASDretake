@@ -80,7 +80,7 @@ $("#form").on('pageinit', function () {
 			var lName = $("#formLastName").val();
 			var eMail = $("#formEmail").val();
 			var pNum = $("#formPhone").val();
-				$("#display ul").html("<li> " + '  First Name: '  + fName + "<br>" + '  Last Name:  ' +  lName  + "<br>" +'  Email:  ' + eMail + "<br>" +'  Phone Number:  ' + pNum + "</li>");
+				$("#newDiv").html("<li> " + '  First Name: '  + fName + "<br>" + '  Last Name:  ' +  lName  + "<br>" +'  Email:  ' + eMail + "<br>" +'  Phone Number:  ' + pNum + "</li>");
 });	
         $("#data1").on("click", function () {
             $.ajax({
