@@ -90,7 +90,7 @@ $("#form").on('pageinit', function () {
                 success: function (data, status) {
                 	var obj = $.parseJSON(JSON.stringify(data));
                     console.log( obj, status);
-                    $("#display ul").html("<li> " + JSON.stringify(data) + "</li>");
+                    $("#newDiv").html("<li> " + JSON.stringify(data , null, " <br> ") + "</li>");
                 },
                 error: function (error, parseerror) {
                     console.log(error, parseerror);
@@ -99,9 +99,54 @@ $("#form").on('pageinit', function () {
 
         });
         
-        
-        
+        $("#data2").on("click", function () {
+            /*$.ajax({
+            
+            	contents: {
+					mycustomtype: /mycustomtype/
+					},
+					converters: {
+						"mycustomtype json": function( result ) {
+							// Do stuff
+							return newresult;
+							}
+							}
+                url: "libs/main.php",
+                type: "GET",
+                dataType: "xml",
+                success: function (data, status) {
+                	var obj = $.parseJSON(JSON.stringify(data));
+                    console.log( obj, status);
+                    $("#display ul").html("<li> " + JSON.stringify(data , null, " <br> ") + "</li>");
+                },
+                error: function (error, parseerror) {
+                    console.log(error, parseerror);
+                }
+            });*/
+            $.ajax({
+				  url: "libs/main.php",
+				  cache: false
+				})
+				  .done(function( html ) {
+				    $( "#newDiv" ).append( html );
+				  });
 
+        });
+        
+function toggleMyDiv(){
+	var myNewDiv = $("#newDiv");
+		if(myNewDiv.style.visibility == "visible" )	
+			myNewDiv.style.visibility = "hidden";
+		else
+			myNewDiv.style.visibility = "visible";
+};
+        
+var myObject = {};
+	myObject.formFirstName = "Brian";
+	myObject.formLastName = "Stacks";
+	myObject.formEmail = "me@rest.com";
+	myObject.formPhone = "555-555-55555";
+	
         
         
     var submitData = $("#submit");
