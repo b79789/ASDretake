@@ -1,13 +1,5 @@
 // Brian Stacks 9/30/13
 // ASD--1310
-function(doc) {
-  	if(doc._id.substr(0,8) === "estimate"){
-  		emit(doc._id.substr(8), {
-  			"formFirstName": doc.formFirstName,
-  			"formLastName": doc.formLastName,
-  			"formEmail": doc.formEmail,
-  			"formPhone": doc.formPhone
-  		});
   	
 $("#home").on('pageinit', function () {
     //code needed for home page goes here
@@ -187,5 +179,3 @@ $("#contactUs").on('pageinit', function () {
 
 });
 
-}
-};
