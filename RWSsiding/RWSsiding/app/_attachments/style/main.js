@@ -18,8 +18,9 @@ $("#form").on('pageinit', function () {
 	        myItem.formEmail = ["Email:", $("#formEmail").val()];
 	        myItem.formPhone = ["Phone Number", $("#formPhone").val()];
 	        //Save data to local storage Use stringify to covert object
-	        localStorage.setItem(myId, JSON.stringify(myItem));
-	        alert("Estimate Saved!");
+	        //localStorage.setItem(myId, JSON.stringify(myItem));
+	        //alert("Estimate Saved!");
+	        
 	    };
 	    
     function validate() {
@@ -122,7 +123,7 @@ $("#form").on('pageinit', function () {
                 error: function (error, parseerror) {
                     console.log(error, parseerror);
                 }
-            });*/
+            });
             $.ajax({
 				  url: "libs/main.php",
 				  cache: false
@@ -131,7 +132,7 @@ $("#form").on('pageinit', function () {
 				    $( "#newDiv" ).append( html );
 				  });
 
-        });
+        });*/
         
 function toggleMyDiv(){
 	var myNewDiv = $("#newDiv");
