@@ -3,6 +3,11 @@
   	
 $("#home").on('pageinit', function () {
     //code needed for home page goes here
+    $.couch.db("rws_siding").view("plugin/asdretake",{
+	    success: function(data){
+		    console.log(data);
+	    }
+    })
 });
 
 
